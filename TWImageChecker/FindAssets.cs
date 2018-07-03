@@ -50,7 +50,7 @@ namespace TWImageChecker
                                     HoldCodes.WallTilePartCode + _ + WallTile + _ +
                                     HoldCodes.BasinTapPartCode + _ + BasinTap + _ +
                                     HoldCodes.TileTrimPartCode + _ + TileTrim + _ +
-                                    HoldCodes.PackagePartCode + _ + Package + _ + TileArea;
+                                    HoldCodes.PackagePartCode + _ + Package + _ + TileArea + ".jpg";
 
                                     FilesToFind.Add(tempfile);
 
@@ -68,17 +68,18 @@ namespace TWImageChecker
                 {
                     if (FilesToFind.Contains(f.Name))
                     {
-
-
-                    }
-                    else
-                    {
-                        missingAssets.Add(f.Name);
+                        FilesToFind.Remove(f.Name);
                     }
                 }
+
+                foreach (string ff in FilesToFind)
+                {
+                    missingAssets.Add(ff);
+                }
+
             }
             else if (allFiles.Length == 0)
-                {
+            {
                 foreach (string f in FilesToFind)
                 {
                     missingAssets.Add(f);
@@ -86,7 +87,7 @@ namespace TWImageChecker
 
             }
 
-            
+
         }
 
         public void searchFlooringFiles(string assetLocation)
@@ -104,7 +105,7 @@ namespace TWImageChecker
 
                                     tempfile = addtoFileName +
                                     HoldCodes.FlooringPartCode + _ + Flooring + _ +
-                                    HoldCodes.PackagePartCode + _ + Package;
+                                    HoldCodes.PackagePartCode + _ + Package + ".png";
 
                                     FilesToFind.Add(tempfile);
 
@@ -118,14 +119,15 @@ namespace TWImageChecker
                 {
                     if (FilesToFind.Contains(f.Name))
                     {
-
-
-                    }
-                    else
-                    {
-                        missingAssets.Add(f.Name);
+                        FilesToFind.Remove(f.Name);
                     }
                 }
+
+                foreach (string ff in FilesToFind)
+                {
+                    missingAssets.Add(ff);
+                }
+
             }
             else if (allFiles.Length == 0)
             {
@@ -156,7 +158,7 @@ namespace TWImageChecker
                         tempfile = addtoFileName +
                         HoldCodes.WallTilePartCode + _ + WallTiles + _ +
                          HoldCodes.BathTapPartCode + _ + BathTaps + _ +
-                        HoldCodes.BathPartCode + _ + Bath;
+                        HoldCodes.BathPartCode + _ + Bath + ".png";
 
                         FilesToFind.Add(tempfile);
 
@@ -171,14 +173,15 @@ namespace TWImageChecker
                 {
                     if (FilesToFind.Contains(f.Name))
                     {
-
-
-                    }
-                    else
-                    {
-                        missingAssets.Add(f.Name);
+                        FilesToFind.Remove(f.Name);
                     }
                 }
+
+                foreach (string ff in FilesToFind)
+                {
+                    missingAssets.Add(ff);
+                }
+                
             }
             else if (allFiles.Length == 0)
             {
@@ -200,13 +203,13 @@ namespace TWImageChecker
 
         public void createMissingAssetsTextFile(string saveLocation)
         {
-            try
+            try 
             {
 
              saveLocation = saveLocation + "\\" + "MissingTWAssets.txt";
 
              File.WriteAllLines(saveLocation, missingAssets);
-                MessageBox.Show(e.ToString(), "Error List Created", MessageBoxButtons.OK);
+                MessageBox.Show("Error List Created", "Error List Created", MessageBoxButtons.OK);
 
 
             }
