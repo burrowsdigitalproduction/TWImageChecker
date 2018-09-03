@@ -66,6 +66,11 @@ namespace TWImageChecker
             {
                 foreach (FileInfo f in allFiles)
                 {
+                    if (f.Name == "bathroom_standard_R1001R1002_1644_R1001R1006_1637_R1001R1042_1029_R1001R1045_1509_R1001R2000_2644_std.jpg")
+                    {
+
+                    }
+
                     if (FilesToFind.Contains(f.Name))
                     {
                         FilesToFind.Remove(f.Name);

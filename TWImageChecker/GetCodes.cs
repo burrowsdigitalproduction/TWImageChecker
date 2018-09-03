@@ -43,7 +43,7 @@ namespace TWImageChecker
 
 
 
-            string jsonFile = File.ReadAllText(@"\\bcluster\burrows\digital\autorender\taylorwimpey\Production\Tool\TWData.json");
+            string jsonFile = File.ReadAllText(@"\\bcluster\burrows\digital\autorender\taylorwimpey\Production\Tool\TWBathroomData.json");
             var DataList = JsonConvert.DeserializeObject<GetCodes>(jsonFile);
 
             TowelRailPartCode = DataList.TowelRailPartCode;
